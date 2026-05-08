@@ -51,6 +51,12 @@
             </nav>
         </div>
 
+        <!-- BARRE DE RECHERCHE -->
+        <div class="search-container print-hidden">
+            <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Rechercher une fourniture (ex: cahier, blouse, compas...)" autocomplete="off">
+        </div>
+
         <!-- Légende des bandeaux rouges -->
         <div class="max-w-[210mm] mx-auto mt-3 print-hidden">
             <div class="ribbon-legend">
@@ -109,7 +115,7 @@
                     <div><h4>Arts Plastiques</h4><ul><li>Feuilles dessin blanches 180g (A4/A3)</li><li>Trousse dédiée: feutre noir Flair, 12 feutres, 12 crayons couleur, scotch.</li><li><em>Nouveaux élèves :</em> 1 porte-vues 50 pochettes A4, feuilles dessin couleurs 160g/180g (A3 ou 24x32), calques 70g A4.</li><li><em>Anciens élèves :</em> vous êtes invités à garder le même lutin que l'année précédente.</li></ul></div>
                     <div><h4>Éducation Musicale</h4><ul><li>1 cahier musique et chants (grands carreaux et portées), agrafé, 24x32, 48p.</li></ul></div>
                     <div><h4>EPS</h4><ul><li>Pantalon/short (noir/bleu marine) + T-Shirt orange.</li><li>Chaussures de sport, gourde, casquette. Cheveux attachés.</li></ul></div>
-                    <div><h4>Espagnol</h4><ul><li>1 cahier Seyès 24x32 96p jaune.</li><li>Cahier d'activités Hispamundo 5e, Lelivrescolaire 2026 (ISBN : 9791040008682)</li><li>Manuel numérique Hispamundo 5e, Lelivrescolaire 2026 (ISBN : 9791040009016)<br><em class="text-xs text-blue-800 mt-1 block">Le manuel est acheté et mis à disposition par l'établissement et refacturé via EDUKA aux familles.</em></li></ul></div>
+                    <div><h4>Espagnol</h4><ul><li>1 cahier Seyès 24x32 96p jaune.</li><li>Cahier d'activités Hispamundo 5e, Lelivrescolaire 2026 (ISBN : 9791040008682)</li></ul></div>
                     <div><h4>Histoire-Géographie EMC</h4><ul><li>2 cahiers Seyès 24x32 96p bleu.</li><li>Histoire Géographie EMC 5ème Bimanuel, Magnard 2016 (ISBN : 9782210105669)</li></ul></div>
                     <div class="ribbon-container">
                         <div class="ribbon-small">En attente<br>des œuvres</div>
@@ -326,6 +332,9 @@
             </div>
         </div>
     </div>
+
+    <!-- NOTIFICATION TOAST -->
+    <div id="toast-notification">La liste a été copiée avec succès !</div>
 
     <!-- SCRIPTS EXTERNES -->
     <script src="data.js"></script>

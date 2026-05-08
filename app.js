@@ -12,6 +12,15 @@ document.addEventListener('DOMContentLoaded', function() {
         el.innerHTML = generalSuppliesHTML;
     });
 
+    // Transformer les listes en listes interactives avec cases à cocher
+    initInteractiveLists();
+
+    // Ajouter les boutons de copie
+    initCopyButtons();
+
+    // Initialiser la recherche
+    initSearch();
+
     // Gérer la navigation par hash au chargement
     handleHashNavigation();
 
@@ -23,10 +32,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // ========================
 // NAVIGATION PAR HASH (liens partageables)
 // ========================
-// Formats supportés :
-//   #classe-6eme, #classe-5eme, etc.
-//   #discipline-anglais, #discipline-maths, etc.
-
 function handleHashNavigation() {
     var hash = window.location.hash.replace('#', '');
     if (!hash) {
@@ -47,13 +52,12 @@ function handleHashNavigation() {
 }
 
 function updateHash(hash) {
-    // Mettre à jour l'URL sans déclencher un scroll
     history.replaceState(null, '', '#' + hash);
 }
 
 
 // ========================
-// ONGLETS PRINCIPAUX (Classe / Discipline)
+// ONGLETS PRINCIPAUX ET CLASSES
 // ========================
 function switchMainTab(tab) {
     var mainContents = document.querySelectorAll('.main-content');
@@ -81,10 +85,6 @@ function switchMainTab(tab) {
     }
 }
 
-
-// ========================
-// ONGLETS PAR CLASSE
-// ========================
 function switchClassTab(className) {
     var classContents = document.querySelectorAll('.class-content');
     classContents.forEach(function(el) {
@@ -110,14 +110,9 @@ function switchClassTab(className) {
         targetBtn.classList.add('bg-white', 'text-blue-900', 'shadow');
     }
 
-    // Mettre à jour le hash pour partage
     updateHash('classe-' + className);
 }
 
-
-// ========================
-// VUE PAR DISCIPLINE
-// ========================
 function showDiscipline(discId) {
     switchMainTab('discipline');
 
@@ -142,9 +137,12 @@ function showDiscipline(discId) {
         if (nameEl) nameEl.innerText = data.title;
 
         var contentEl = document.getElementById('discipline-dynamic-content');
-        if (contentEl) contentEl.innerHTML = data.content;
+        if (contentEl) {
+            contentEl.innerHTML = data.content;
+            // On rend cette nouvelle liste dynamique interactive aussi
+            initInteractiveLists(contentEl);
+        }
 
-        // Gérer l'affichage du bandeau rouge large sur l'attestation par discipline
         var largeRibbon = document.getElementById('discipline-large-ribbon');
         if (largeRibbon) {
             if (discId === 'anglais') {
@@ -161,11 +159,9 @@ function showDiscipline(discId) {
             }
         }
 
-        // Générer les signatures
         var sigContainer = document.getElementById('discipline-signature-container');
         if (sigContainer) {
             var teachers = data.teachers && data.teachers.length > 0 ? data.teachers : [''];
-
             var sigHTML = '<div class="w-full text-right text-sm mb-4"><p>Fait à Saly, le .......................................</p></div><div class="flex justify-center md:justify-end gap-x-8 gap-y-8 w-full flex-wrap">';
 
             teachers.forEach(function(teacherName) {
@@ -180,6 +176,187 @@ function showDiscipline(discId) {
         }
     }
 
-    // Mettre à jour le hash pour partage
     updateHash('discipline-' + discId);
 }
+
+
+// ========================
+// RECHERCHE DYNAMIQUE
+// ========================
+function initSearch() {
+    var searchInput = document.getElementById('searchInput');
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', function(e) {
+        var query = e.target.value.toLowerCase().trim();
+        
+        // On ne filtre que sur la vue active (classe ou discipline)
+        var activeMain = document.querySelector('.main-content.block');
+        if (!activeMain) return;
+
+        var cards = activeMain.querySelectorAll('.grid-cards > div');
+        
+        cards.forEach(function(card) {
+            // Remise à zéro du surlignage
+            var labels = card.querySelectorAll('label');
+            labels.forEach(l => {
+                // Ne garder que le texte pur en supprimant les spans de surlignage éventuels
+                if (l.innerHTML.includes('<span class="highlight">')) {
+                    l.innerHTML = l.textContent;
+                }
+            });
+
+            if (query === '') {
+                card.style.display = '';
+                return;
+            }
+
+            var cardText = card.textContent.toLowerCase();
+            if (cardText.includes(query)) {
+                card.style.display = '';
+                
+                // Surligner les résultats dans les items
+                labels.forEach(l => {
+                    var text = l.textContent;
+                    var lowerText = text.toLowerCase();
+                    if (lowerText.includes(query)) {
+                        var index = lowerText.indexOf(query);
+                        var matchedText = text.substr(index, query.length);
+                        l.innerHTML = text.substring(0, index) + '<span class="highlight">' + matchedText + '</span>' + text.substring(index + query.length);
+                    }
+                });
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+}
+
+
+// ========================
+// LISTE DE COURSES INTERACTIVE
+// ========================
+function initInteractiveLists(container = document) {
+    // Cibler uniquement les ul dans les grilles de cartes
+    var uls = container.querySelectorAll('.grid-cards ul, .general-supplies ul');
+    
+    uls.forEach(function(ul) {
+        // Ajouter la classe interactive
+        if (!ul.classList.contains('interactive-list')) {
+            ul.classList.add('interactive-list');
+            ul.classList.remove('list-disc', 'list-inside'); // Retirer les anciens styles de liste
+        }
+
+        var lis = ul.querySelectorAll('li');
+        lis.forEach(function(li) {
+            // Si c'est déjà un item interactif, ignorer
+            if (li.querySelector('input[type="checkbox"]')) return;
+
+            // Extraire le texte HTML
+            var content = li.innerHTML;
+            
+            // Créer l'identifiant unique basé sur le texte pur
+            var rawText = li.textContent.trim();
+            var storageId = 'lfjp_item_' + btoa(encodeURIComponent(rawText)).substring(0, 30); // Base64 du texte pour éviter les caractères spéciaux
+
+            // Vider le li et recréer la structure
+            li.innerHTML = '';
+            
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = storageId + '_' + Math.random().toString(36).substr(2, 9); // ID unique par page
+            
+            var label = document.createElement('label');
+            label.htmlFor = checkbox.id;
+            label.innerHTML = content;
+
+            li.appendChild(checkbox);
+            li.appendChild(label);
+
+            // Restaurer l'état
+            if (localStorage.getItem(storageId) === 'true') {
+                checkbox.checked = true;
+                li.classList.add('item-checked');
+            }
+
+            // Écouter les changements
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    li.classList.add('item-checked');
+                    localStorage.setItem(storageId, 'true');
+                } else {
+                    li.classList.remove('item-checked');
+                    localStorage.removeItem(storageId);
+                }
+            });
+        });
+    });
+}
+
+
+// ========================
+// BOUTON COPIER
+// ========================
+function initCopyButtons() {
+    var classHeaders = document.querySelectorAll('.class-content .text-center.border-b-2');
+    
+    classHeaders.forEach(function(header) {
+        header.classList.add('relative');
+        
+        var copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-btn print-hidden absolute top-0 right-0 sm:top-2 sm:right-2';
+        copyBtn.innerHTML = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg> Copier la liste';
+        
+        copyBtn.addEventListener('click', function() {
+            var classContent = header.closest('.class-content');
+            var className = header.querySelector('h2').textContent;
+            copyClassList(classContent, className);
+        });
+
+        header.appendChild(copyBtn);
+    });
+}
+
+function copyClassList(container, className) {
+    var textToCopy = "Fournitures LFJP 2026-2027 - " + className + "\\n\\n";
+    
+    // Fournitures Générales
+    textToCopy += "==== FOURNITURES GÉNÉRALES ====\\n";
+    var genItems = container.querySelectorAll('.general-supplies li label');
+    genItems.forEach(function(item) {
+        textToCopy += "- " + item.textContent + "\\n";
+    });
+    textToCopy += "\\n";
+
+    // Spécifiques
+    textToCopy += "==== MATIÈRES SPÉCIFIQUES ====\\n";
+    var cards = container.querySelectorAll('.grid-cards > div');
+    cards.forEach(function(card) {
+        var subject = card.querySelector('h4').textContent;
+        textToCopy += "■ " + subject + " :\\n";
+        
+        var items = card.querySelectorAll('li label');
+        items.forEach(function(item) {
+            textToCopy += "  - " + item.textContent + "\\n";
+        });
+        textToCopy += "\\n";
+    });
+
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        showToast();
+    }).catch(function(err) {
+        console.error('Erreur lors de la copie : ', err);
+        alert("Impossible de copier automatiquement. Veuillez sélectionner le texte manuellement.");
+    });
+}
+
+function showToast() {
+    var toast = document.getElementById('toast-notification');
+    if (toast) {
+        toast.classList.add('show');
+        setTimeout(function() {
+            toast.classList.remove('show');
+        }, 3000);
+    }
+}
+
