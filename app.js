@@ -21,12 +21,75 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialiser la recherche
     initSearch();
 
+    // Vérifier l'état de connexion au chargement
+    checkAuthState();
+
     // Gérer la navigation par hash au chargement
     handleHashNavigation();
 
     // Écouter les changements de hash (bouton retour, lien partagé)
     window.addEventListener('hashchange', handleHashNavigation);
 });
+
+
+// ========================
+// AUTHENTIFICATION (Espace Enseignant)
+// ========================
+function toggleLoginModal() {
+    var modal = document.getElementById('login-modal');
+    if (modal) {
+        modal.classList.toggle('hidden');
+        if (!modal.classList.contains('hidden')) {
+            document.getElementById('login-user').focus();
+        }
+    }
+}
+
+function handleLogin() {
+    var user = document.getElementById('login-user').value;
+    var pass = document.getElementById('login-pass').value;
+    var error = document.getElementById('login-error');
+
+    if (user === 'admin' && pass === 'admin') {
+        sessionStorage.setItem('lfjp_auth', 'true');
+        checkAuthState();
+        toggleLoginModal();
+        if (error) error.classList.add('hidden');
+    } else {
+        if (error) error.classList.remove('hidden');
+    }
+}
+
+function handleLogout() {
+    sessionStorage.removeItem('lfjp_auth');
+    checkAuthState();
+    // Revenir à l'onglet classe si on était sur discipline
+    switchMainTab('classe');
+    switchClassTab('6eme');
+}
+
+function checkAuthState() {
+    var isAuth = sessionStorage.getItem('lfjp_auth') === 'true';
+    var discTab = document.getElementById('mainTabBtn-discipline');
+    var authBtn = document.getElementById('auth-btn');
+    var authText = document.getElementById('auth-btn-text');
+
+    if (isAuth) {
+        if (discTab) discTab.classList.remove('hidden');
+        if (authBtn) {
+            authBtn.onclick = handleLogout;
+            authBtn.classList.add('bg-red-50', 'border-red-200');
+            if (authText) authText.innerText = 'Déconnexion';
+        }
+    } else {
+        if (discTab) discTab.classList.add('hidden');
+        if (authBtn) {
+            authBtn.onclick = toggleLoginModal;
+            authBtn.classList.remove('bg-red-50', 'border-red-200');
+            if (authText) authText.innerText = 'Connexion';
+        }
+    }
+}
 
 
 // ========================
