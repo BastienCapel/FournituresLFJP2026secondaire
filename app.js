@@ -145,10 +145,7 @@ function showDiscipline(discId) {
 
         var largeRibbon = document.getElementById('discipline-large-ribbon');
         if (largeRibbon) {
-            if (discId === 'anglais') {
-                largeRibbon.innerHTML = 'En attente de décision<br>sur la sixième';
-                largeRibbon.classList.remove('hidden');
-            } else if (discId === 'lettres') {
+            if (discId === 'lettres') {
                 largeRibbon.innerHTML = 'En attente<br>des œuvres';
                 largeRibbon.classList.remove('hidden');
             } else if (discId === 'physique') {
