@@ -378,28 +378,26 @@ function initCopyButtons() {
 }
 
 function copyClassList(container, className) {
-    var textToCopy = "Fournitures LFJP 2026-2027 - " + className + "\\n\\n";
+    var textToCopy = "📚 Fournitures LFJP 2026-2027 - " + className + "\n\n";
     
     // Fournitures Générales
-    textToCopy += "==== FOURNITURES GÉNÉRALES ====\\n";
+    textToCopy += "🎒 FOURNITURES GÉNÉRALES :\n";
     var genItems = container.querySelectorAll('.general-supplies li label');
     genItems.forEach(function(item) {
-        textToCopy += "- " + item.textContent + "\\n";
+        textToCopy += "▫️ " + item.textContent + "\n";
     });
-    textToCopy += "\\n";
 
     // Spécifiques
-    textToCopy += "==== MATIÈRES SPÉCIFIQUES ====\\n";
+    textToCopy += "\n📘 MATIÈRES SPÉCIFIQUES :\n";
     var cards = container.querySelectorAll('.grid-cards > div');
     cards.forEach(function(card) {
         var subject = card.querySelector('h4').textContent;
-        textToCopy += "■ " + subject + " :\\n";
+        textToCopy += "\n🔹 " + subject.toUpperCase() + " :\n";
         
         var items = card.querySelectorAll('li label');
         items.forEach(function(item) {
-            textToCopy += "  - " + item.textContent + "\\n";
+            textToCopy += "   - " + item.textContent + "\n";
         });
-        textToCopy += "\\n";
     });
 
     navigator.clipboard.writeText(textToCopy).then(function() {
