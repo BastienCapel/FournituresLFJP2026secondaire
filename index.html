@@ -3,39 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attestations Fournitures Scolaires</title>
+    <meta name="description" content="Listes officielles de fournitures scolaires du LFJP pour l'année 2026-2027 — Classes de la 6ème à la Terminale.">
+    <meta name="theme-color" content="#1e3a8a">
+    <title>Fournitures Scolaires 2026-2027 — LFJP</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f3f4f6; font-family: 'Inter', system-ui, sans-serif; }
-        .a4-container { width: 210mm; min-height: 297mm; background: white; margin: 2rem auto; padding: 2rem 2.5rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); overflow: hidden; }
-        .grid-cards > div { border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 0.75rem; background-color: #ffffff; position: relative; overflow: hidden; }
-        .grid-cards h4 { font-weight: 700; color: #1e3a8a; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.25rem; margin-bottom: 0.5rem; font-size: 0.875rem; text-transform: uppercase; }
+        *, *::before, *::after { box-sizing: border-box; }
+        body { background-color: #f0f2f5; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+        .a4-container { width: 210mm; min-height: 297mm; background: white; margin: 2rem auto; padding: 2rem 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06); border-radius: 6px; overflow: hidden; }
+        .grid-cards > div { border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 0.75rem; background-color: #ffffff; position: relative; overflow: hidden; transition: box-shadow 0.2s ease, transform 0.2s ease; }
+        .grid-cards > div:hover { box-shadow: 0 2px 8px rgba(30,58,138,0.10); transform: translateY(-1px); }
+        .grid-cards h4 { font-weight: 700; color: #1e3a8a; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.25rem; margin-bottom: 0.5rem; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.02em; }
         .grid-cards ul { list-style-type: disc; list-style-position: inside; font-size: 0.75rem; color: #374151; }
-        .grid-cards li { margin-bottom: 0.25rem; }
-        .general-supplies { background-color: #f9fafb; border: 1px solid #d1d5db; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem; }
-        
+        .grid-cards li { margin-bottom: 0.25rem; line-height: 1.5; }
+        .general-supplies { background: linear-gradient(135deg, #f9fafb 0%, #f0f4ff 100%); border: 1px solid #d1d5db; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem; }
+
         /* Bandeaux diagonaux */
         .ribbon-container { position: relative; overflow: hidden; }
         .ribbon-small {
             position: absolute; top: 18px; right: -50px; width: 200px;
-            background-color: #dc2626; color: white; padding: 4px 0;
+            background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 4px 0;
             font-size: 0.55rem; font-weight: bold; text-transform: uppercase;
             transform: rotate(45deg); box-shadow: 0 2px 4px rgba(0,0,0,0.2);
             z-index: 10; text-align: center; line-height: 1.2; pointer-events: none;
         }
         .ribbon-large {
             position: absolute; top: 60px; right: -100px; width: 400px;
-            background-color: #dc2626; color: white; padding: 8px 0;
+            background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 8px 0;
             font-size: 1.1rem; font-weight: bold; text-transform: uppercase;
             transform: rotate(45deg); box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             z-index: 50; text-align: center; line-height: 1.2; pointer-events: none;
         }
 
+        /* Tabs */
+        .main-tab-btn, .class-btn, .disc-btn { transition: all 0.2s ease; cursor: pointer; }
+        .class-btn:hover, .disc-btn:hover { background-color: rgba(255,255,255,0.7); }
+
         @media print {
             body { background-color: white; }
-            .a4-container { margin: 0; padding: 0; box-shadow: none; width: 100%; }
+            .a4-container { margin: 0; padding: 0; box-shadow: none; border-radius: 0; width: 100%; }
             .print-hidden { display: none !important; }
             .class-content { page-break-after: always; }
+            .grid-cards > div:hover { box-shadow: none; transform: none; }
         }
     </style>
 </head>
