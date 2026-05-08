@@ -11,46 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        *, *::before, *::after { box-sizing: border-box; }
-        body { background-color: #f0f2f5; font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-        .a4-container { width: 210mm; min-height: 297mm; background: white; margin: 2rem auto; padding: 2rem 2.5rem; box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 3px rgba(0,0,0,0.06); border-radius: 6px; overflow: hidden; }
-        .grid-cards > div { border: 1px solid #e5e7eb; border-radius: 0.5rem; padding: 0.75rem; background-color: #ffffff; position: relative; overflow: hidden; transition: box-shadow 0.2s ease, transform 0.2s ease; }
-        .grid-cards > div:hover { box-shadow: 0 2px 8px rgba(30,58,138,0.10); transform: translateY(-1px); }
-        .grid-cards h4 { font-weight: 700; color: #1e3a8a; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.25rem; margin-bottom: 0.5rem; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.02em; }
-        .grid-cards ul { list-style-type: disc; list-style-position: inside; font-size: 0.75rem; color: #374151; }
-        .grid-cards li { margin-bottom: 0.25rem; line-height: 1.5; }
-        .general-supplies { background: linear-gradient(135deg, #f9fafb 0%, #f0f4ff 100%); border: 1px solid #d1d5db; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem; }
-
-        /* Bandeaux diagonaux */
-        .ribbon-container { position: relative; overflow: hidden; }
-        .ribbon-small {
-            position: absolute; top: 18px; right: -50px; width: 200px;
-            background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 4px 0;
-            font-size: 0.55rem; font-weight: bold; text-transform: uppercase;
-            transform: rotate(45deg); box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            z-index: 10; text-align: center; line-height: 1.2; pointer-events: none;
-        }
-        .ribbon-large {
-            position: absolute; top: 60px; right: -100px; width: 400px;
-            background: linear-gradient(135deg, #dc2626, #b91c1c); color: white; padding: 8px 0;
-            font-size: 1.1rem; font-weight: bold; text-transform: uppercase;
-            transform: rotate(45deg); box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            z-index: 50; text-align: center; line-height: 1.2; pointer-events: none;
-        }
-
-        /* Tabs */
-        .main-tab-btn, .class-btn, .disc-btn { transition: all 0.2s ease; cursor: pointer; }
-        .class-btn:hover, .disc-btn:hover { background-color: rgba(255,255,255,0.7); }
-
-        @media print {
-            body { background-color: white; }
-            .a4-container { margin: 0; padding: 0; box-shadow: none; border-radius: 0; width: 100%; }
-            .print-hidden { display: none !important; }
-            .class-content { page-break-after: always; }
-            .grid-cards > div:hover { box-shadow: none; transform: none; }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="text-gray-800">
 
@@ -90,6 +51,14 @@
             </nav>
         </div>
 
+        <!-- Légende des bandeaux rouges -->
+        <div class="max-w-[210mm] mx-auto mt-3 print-hidden">
+            <div class="ribbon-legend">
+                <span><span class="dot"></span> <strong>Bandeau rouge</strong> = cette liste est provisoire et susceptible d'évoluer.</span>
+                <span>Les mentions « En attente » ou « À confirmer » indiquent qu'une décision définitive est en cours.</span>
+            </div>
+        </div>
+
         <div class="a4-container relative">
             
             <!-- CONTENU 6ÈME -->
@@ -98,6 +67,7 @@
                     <h1 class="text-2xl font-bold text-blue-900 uppercase">Liste de Matériel Scolaire</h1>
                     <h2 class="text-lg font-semibold text-gray-600">Classe de 6ème</h2>
                 </div>
+                <p class="school-year-banner">Année scolaire 2026 – 2027</p>
                 <div class="general-supplies-placeholder"></div>
                 <div class="grid grid-cols-2 gap-3 grid-cards bg-gray-50 p-3 rounded-lg">
                     <div class="ribbon-container">
@@ -132,6 +102,7 @@
                     <h1 class="text-2xl font-bold text-blue-900 uppercase">Liste de Matériel Scolaire</h1>
                     <h2 class="text-lg font-semibold text-gray-600">Classe de 5ème</h2>
                 </div>
+                <p class="school-year-banner">Année scolaire 2026 – 2027</p>
                 <div class="general-supplies-placeholder"></div>
                 <div class="grid grid-cols-2 gap-3 grid-cards bg-gray-50 p-3 rounded-lg">
                     <div><h4>Anglais</h4><ul><li>1 cahier Seyès 24x32 96p</li><li>1 cahier de brouillon (utilisable dans les autres matières)</li></ul></div>
@@ -162,6 +133,7 @@
                     <h1 class="text-2xl font-bold text-blue-900 uppercase">Liste de Matériel Scolaire</h1>
                     <h2 class="text-lg font-semibold text-gray-600">Classe de 4ème</h2>
                 </div>
+                <p class="school-year-banner">Année scolaire 2026 – 2027</p>
                 <div class="general-supplies-placeholder"></div>
                 <div class="grid grid-cols-2 gap-3 grid-cards bg-gray-50 p-3 rounded-lg">
                     <div><h4>Anglais</h4><ul><li>1 cahier Seyès 24x32 96p rouge</li><li>Stylos (bleu, noir, rouge)</li><li>Feutres ou crayons de couleur</li></ul></div>
@@ -192,6 +164,7 @@
                     <h1 class="text-2xl font-bold text-blue-900 uppercase">Liste de Matériel Scolaire</h1>
                     <h2 class="text-lg font-semibold text-gray-600">Classe de 3ème</h2>
                 </div>
+                <p class="school-year-banner">Année scolaire 2026 – 2027</p>
                 <div class="general-supplies-placeholder"></div>
                 <div class="grid grid-cols-2 gap-3 grid-cards bg-gray-50 p-3 rounded-lg">
                     <div><h4>Anglais</h4><ul><li>1 cahier Seyès 24x32 96p rouge</li><li>Piece of Cake (manuel cycle 4), Lelivrescolaire 2017 (ISBN : 9791090910898)</li><li>Piece of cake : Workbook 3eme, Lelivrescolaire 2017 (ISBN : 978-2377600038)</li></ul></div>
@@ -222,6 +195,7 @@
                     <h1 class="text-2xl font-bold text-blue-900 uppercase">Liste de Matériel Scolaire</h1>
                     <h2 class="text-lg font-semibold text-gray-600">Classe de Seconde (2nde)</h2>
                 </div>
+                <p class="school-year-banner">Année scolaire 2026 – 2027</p>
                 <div class="general-supplies-placeholder"></div>
                 <div class="grid grid-cols-2 gap-3 grid-cards bg-gray-50 p-3 rounded-lg">
                     <div><h4>Anglais</h4><ul><li>1 cahier Seyès 24x32 96p rouge</li></ul></div>
@@ -251,6 +225,7 @@
                     <h1 class="text-2xl font-bold text-blue-900 uppercase">Liste de Matériel Scolaire</h1>
                     <h2 class="text-lg font-semibold text-gray-600">Classe de Première (1ère)</h2>
                 </div>
+                <p class="school-year-banner">Année scolaire 2026 – 2027</p>
                 <div class="general-supplies-placeholder"></div>
                 <div class="grid grid-cols-2 gap-3 grid-cards bg-gray-50 p-3 rounded-lg">
                     <div><h4>Anglais (Tronc & Spécialité AMC)</h4><ul><li><strong>Tronc:</strong> 1 cahier Seyès 24x32 96p rouge. Feutres couleurs, stylos rouge, bleu ou noir.</li><li><strong>Spé AMC:</strong> 1 cahier Seyès 24x32 96p rouge + 1 porte-vues rouge 60 vues (ou pochette bleue). Shine Bright 1ere/Term, Nathan 2021 (ISBN : 9782091781778).</li></ul></div>
@@ -282,6 +257,7 @@
                     <h1 class="text-2xl font-bold text-blue-900 uppercase">Liste de Matériel Scolaire</h1>
                     <h2 class="text-lg font-semibold text-gray-600">Classe de Terminale</h2>
                 </div>
+                <p class="school-year-banner">Année scolaire 2026 – 2027</p>
                 <div class="general-supplies-placeholder"></div>
                 <div class="grid grid-cols-2 gap-3 grid-cards bg-gray-50 p-3 rounded-lg">
                     <div><h4>Anglais (Tronc & Spécialité AMC)</h4><ul><li><strong>Tronc:</strong> 1 cahier Seyès 24x32 96p rouge. Feutres couleurs, stylos.</li><li><strong>Spé AMC:</strong> 1 cahier Seyès 24x32 96p rouge + 1 porte-vues rouge 60 vues. Let's Meet up!, Hatier 2021 (ISBN : 978-2-401-07728-7).</li></ul></div>
@@ -351,289 +327,8 @@
         </div>
     </div>
 
-    <!-- SCRIPT JAVASCRIPT -->
-    <script>
-        const generalSuppliesHTML = `
-            <div class="general-supplies">
-                <h3 class="font-bold text-blue-900 mb-2 uppercase text-sm">Fournitures Générales (à avoir en permanence) :</h3>
-                <div class="grid grid-cols-2 gap-2 text-xs text-gray-700">
-                    <ul class="list-disc list-inside">
-                        <li>Cartable, agenda, trousse complète</li>
-                        <li>Gourde, mouchoirs, ciseaux (adaptés si gaucher)</li>
-                        <li>Crayon papier HB, gomme, colle, taille-crayons</li>
-                        <li>2 stylos 4 couleurs, règle fer (30cm)</li>
-                    </ul>
-                    <ul class="list-disc list-inside">
-                        <li>Feutres (12) et crayons de couleur (12)</li>
-                        <li>1 pochette rabats verte A4 (évaluations)</li>
-                        <li>1 pochette rabats rouge A4 (feuilles simples et doubles Seyès)</li>
-                        <li>Clé USB</li>
-                    </ul>
-                </div>
-            </div>
-        `;
-        document.querySelectorAll('.general-supplies-placeholder').forEach(el => el.innerHTML = generalSuppliesHTML);
-
-        // Données complètes pour la vue "Par Discipline"
-        const disciplinesData = {
-            'anglais': { 
-                title: 'Anglais', 
-                teachers: ['M. FAYE', 'Mme JAÏT', 'Mme PORTER'], 
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">En attente de décision<br>sur la sixième</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p rouge</li><li>Way to go 6ème, Lelivrescolaire (ISBN : 9791040007685)</li><li>Way to go : Workbook 6ème, Lelivrescolaire (ISBN : 9791040007692)</li><li><em>(Uniquement pour M. Faye. Dr. Porter n'utilise pas ces manuels)</em></li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p</li><li>1 cahier de brouillon (utilisable dans les autres matières)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 4ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p rouge</li><li>Stylo bleu ou noir et stylo rouge</li><li>Feutres ou crayons de couleur</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 3ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p rouge</li><li>Piece of Cake (manuel cycle 4), Lelivrescolaire 2017 (ISBN : 9791090910898)</li><li>Piece of cake : Workbook 3eme, Lelivrescolaire 2017 (ISBN : 978-2377600038)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde (2nde)</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p rouge</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère)</h3><ul class="list-disc ml-4 text-sm"><li><strong>Tronc Commun :</strong> 1 cahier Seyès 24X32 96p rouge, feutres couleurs, stylos.</li><li><strong>Spé AMC :</strong> 1 cahier Seyès 24X32 96p rouge, 1 porte-vues rouge 60 vues ou pochette bleue. Shine Bright 1ere/Term, Nathan 2021 (ISBN : 9782091781778)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale</h3><ul class="list-disc ml-4 text-sm"><li><strong>Tronc Commun :</strong> 1 cahier Seyès 24X32 96p rouge, feutres couleurs, stylos.</li><li><strong>Spé AMC :</strong> 1 cahier Seyès 24X32 96p rouge, 1 porte-vues rouge 60 vues. Let's Meet up!, Hatier 2021 (ISBN : 978-2-401-07728-7)</li></ul></div>` 
-            },
-            'arts': { 
-                title: 'Arts Plastiques', 
-                teachers: ['Mme CAPEL'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>1 porte-vues 50 pochettes A4</li><li>Feuilles dessin blanches 180g (A4 ou A3) et couleurs 160g 24X32</li><li>1 pochette calques 70g A4</li><li>Trousse dédiée : feutre noir Flair, 5 tubes gouache 10ml, 12 feutres, 12 crayons couleur, scotch.</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classes de 5ème, 4ème et 3ème</h3><ul class="list-disc ml-4 text-sm"><li>Feuilles dessin blanches 180g (A4 ou A3)</li><li>Trousse dédiée : feutre noir Flair, 12 feutres, 12 crayons couleur, scotch.</li><li><strong>Nouveaux élèves :</strong> 1 porte-vues 50 pochettes A4, feuilles dessin couleurs 160/180g (A3 ou 24x32), calques 70g A4.</li><li><strong>Anciens élèves :</strong> vous êtes invités à garder le même lutin que l'année précédente.</li></ul></div>` 
-            },
-            'ens_sci': { 
-                title: 'Enseignement Scientifique', 
-                teachers: [],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère)</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur bleu A4, 6 intercalaires, lot de pochettes plastifiées A4</li><li>Enseignement scientifique 1ère Lelivrescolaire (Manuel en ligne)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur bleu A4, 6 intercalaires, lot de pochettes plastifiées A4</li><li>Enseignement scientifique Tle Lelivrescolaire (Manuel en ligne)</li></ul></div>` 
-            },
-            'eps': { 
-                title: 'Éducation Physique et Sportive (EPS)', 
-                teachers: ['Mme DRAME', 'M. NDIAYE'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">De la 6ème à la Terminale</h3><ul class="list-disc ml-4 text-sm"><li>1 pantalon ou short de sport noir ou bleu marine</li><li>1 T-Shirt orange</li><li>Chaussures de sport attachées</li><li>Gourde (déjà dans fournitures générales)</li><li>Cheveux attachés, chaussettes propres, casquette pour l'extérieur.</li></ul></div>` 
-            },
-            'espagnol': { 
-                title: 'Espagnol', 
-                teachers: ['Mme GIBUS', 'M. PIAGGIO'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p jaune</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p jaune</li><li>Cahier d'activités Hispamundo 5e, Lelivrescolaire 2026 (ISBN : 9791040008682)</li><li>Manuel numérique Hispamundo 5e, Lelivrescolaire 2026 (ISBN : 9791040009016)<br><em class="text-blue-800 mt-1 block">Le manuel est acheté et mis à disposition par l'établissement et refacturé via EDUKA aux familles.</em></li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 4ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p jaune</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 3ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p jaune</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde (2nde)</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p jaune</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère)</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p jaune</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p jaune</li></ul></div>` 
-            },
-            'hggsp': { 
-                title: 'HGGSP', 
-                teachers: ['Mme BOSSU', 'Mme MICHON GUILLAUME', 'M. THOMAS'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère)</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p vert (à renouveler si nécessaire)</li><li>Une dizaine de pochettes plastifiées transparentes A4</li><li>Histoire-Géo Géopolitique Sciences Pol. 1re, Hachette Édition 2023 (ISBN : 9782016281055)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 192p vert (à renouveler si nécessaire)</li><li>Une dizaine de pochettes plastifiées transparentes A4</li><li>Histoire-Géo Géopolitique Sciences Pol. Tle, Hachette Édition 2024 (ISBN : 9782017257097)</li></ul></div>` 
-            },
-            'histgeo': { 
-                title: 'Histoire-Géographie & EMC', 
-                teachers: ['Mme BOSSU', 'Mme MICHON GUILLAUME', 'M. THOMAS'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p bleu</li><li>Histoire Géographie EMC 6ème Bimanuel, Magnard 2016 (ISBN : 9782210105676)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p bleu</li><li>Histoire Géographie EMC 5ème Bimanuel, Magnard 2016 (ISBN : 9782210105669)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 4ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 bleu, 1 orange)</li><li>Histoire Géographie EMC 4ème Bimanuel, Magnard 2016 (ISBN : 9782210105973)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 3ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 bleu, 1 orange)</li><li>1 cahier Seyès 24X32 48p (bleu ou orange au choix)</li><li>Gaïa 3e, Magnard 2021 (ISBN : 9782210114951)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde (2nde)</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 bleu, 1 orange)</li><li>Histoire Géographie 2nde Bimanuel, Belin 2024 (ISBN : 9791035833107)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère)</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 bleu, 1 orange)</li><li>Histoire Géographie 1ère Bimanuel, Belin 2025 (ISBN : 9791035841232)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 bleu, 1 orange)</li><li>Histoire Géographie Terminale Bimanuel, Belin 2026 (ISBN : 9791035846107)</li></ul></div>` 
-            },
-            'lettres': { 
-                title: 'Lettres Modernes', 
-                teachers: ['M. BARITOU', 'Mme FALL', 'Mme MOURAIN DIOP'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">En attente<br>des œuvres</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 rose, 1 violet)</li><li>1 cahier Seyès 17X22 96p</li><li>Fleurs d'encre 6e, Hachette Édition 2025 (ISBN : 9782017291497)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">En attente<br>des œuvres</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p roses</li><li>Terre des Lettres 5e, Nathan Édition 2026 (EAN : 9782095059392)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">En attente<br>des œuvres</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 4ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 rose, 1 violet)</li><li>1 cahier Seyès 17X22 96p</li><li>Colibris 4e, Hatier Édition 2017 (ISBN : 978-2-401-00069-8)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">En attente<br>des œuvres</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 3ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 rose, 1 violet)</li><li>1 cahier Seyès 17X22 96p</li><li>Colibris 3e, Hatier Édition 2017 (ISBN : 978-2-401-00072-8)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">En attente<br>des œuvres</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classes de 2nde et 1ère</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 rouge à couverture rigide, 6 intercalaires</li><li>Lot de pochettes plastifiées transparentes A4</li></ul></div>` 
-            },
-            'maths': { 
-                title: 'Mathématiques', 
-                teachers: ['Mme CHABERT', 'Mme DUFAY', 'M. NDOYE', 'M. SERVATE'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 transparent, 1 gris)</li><li>Equerre, rapporteur, compas, calculatrice Casio fx 92+</li><li>Manuel numérique Myriade, Bordas Édition 2025 (ISBN : 9782047408698)<br><em class="text-blue-800 mt-1 block">Le manuel est acheté et mis à disposition par l'établissement et refacturé via EDUKA aux familles.</em></li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 transparent, 1 gris)</li><li>Equerre, rapporteur, compas, calculatrice Casio fx 92+</li><li>Math 5e, Lelivrescolaire Édition 2026 (ISBN num : 9791040008897)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classes de 4ème et 3ème</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 transparent, 1 gris)</li><li>Equerre, rapporteur, compas, calculatrice Casio fx 92+</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde (2nde)</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24X32 96p (1 transparent, 1 gris)</li><li>Equerre, rapporteur, compas</li><li>Calculatrice NumWorks Python</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère)</h3><ul class="list-disc ml-4 text-sm"><li class="font-semibold text-blue-900 mt-1">Tronc Commun :</li><li>2 cahiers Seyès 24x32 96p (transparent, gris)</li><li>Equerre, rapporteur, compas</li><li>Calculatrice Casio fx 92+ OU NumWorks Python</li><li class="font-semibold text-blue-900 mt-2">Spécialité :</li><li>2 cahiers Seyès 24x32 96p (transparent, gris)</li><li>Equerre, rapporteur, compas</li><li>Calculatrice NumWorks Python</li><li>Manuel Barbazo, Hachette 2019 (ISBN : 9782013954860)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale</h3><ul class="list-disc ml-4 text-sm"><li class="font-semibold text-blue-900 mt-1">Spécialité :</li><li>2 cahiers Seyès 24x32 96p (transparent, gris)</li><li>Equerre, rapporteur, compas</li><li>Calculatrice NumWorks Python</li><li>Manuel Barbazo, Hachette 2020 (ISBN : 9782017866190)</li></ul></div>` 
-            },
-            'musique': { 
-                title: 'Éducation Musicale', 
-                teachers: ['M. DIANDY'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">De la 6ème à la 3ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier de musique et chants grands carreaux et portées, agrafé, 24x32 cm, 48 pages</li></ul></div>` 
-            },
-            'philo': { 
-                title: 'Philosophie', 
-                teachers: ['M. GOMIS'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde (2nde)</h3><ul class="list-disc ml-4 text-sm"><li>La philosophie de A à Z, Hatier (ISBN : 978-2-401-07365-4)</li><li>Support de prise de cours au choix.</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère)</h3><ul class="list-disc ml-4 text-sm"><li>La philosophie de A à Z, Hatier (ISBN : 978-2-401-07365-4)</li><li>Philosophie Tle voie générale, Hatier 2020 (ISBN : 978-2-401-06159-0)</li><li>Support de prise de cours au choix.</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale</h3><ul class="list-disc ml-4 text-sm"><li>La philosophie de A à Z, Hatier (ISBN : 978-2-401-07365-4)</li><li>Philosophie Tle voie générale, Hatier 2020 (ISBN : 978-2-401-06159-0)</li><li>Lettre à Ménécée d’Epicure, Hatier (ISBN : 978-2-218-99139-4)</li><li>Support de prise de cours au choix.</li></ul></div>` 
-            },
-            'physique': { 
-                title: 'Physique-Chimie', 
-                teachers: ['M. FALL', 'M. NDAW'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">À confirmer<br>lundi 11 mai</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p orange</li><li>1 blouse blanche en coton à manches longues</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">À confirmer<br>lundi 11 mai</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème et 4ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun avec Techno), 6 à 8 intercalaires, pochettes plastifiées A4</li><li>1 blouse blanche en coton à manches longues</li><li>Physique Chimie Cycle 4, Lelivrescolaire 2017 (ISBN : 979-10-90910-591)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">À confirmer<br>lundi 11 mai</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 3ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun Techno/Phys), 6 intercalaires, pochettes A4</li><li>1 blouse blanche en coton à manches longues</li><li>Physique Chimie Cycle 4, Lelivrescolaire 2017 (ISBN : 979-10-90910-591)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">À confirmer<br>lundi 11 mai</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde (2nde)</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun SVT, Phy, Techno), 10 intercalaires, pochettes A4</li><li>1 blouse blanche en coton à manches longues</li><li>Physique Chimie 2nde, Lelivrescolaire 2019 (ISBN : 9782377601431)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">À confirmer<br>lundi 11 mai</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère) - Spécialité</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun SVT/Tech), 10 intercalaires, pochettes A4</li><li>1 blouse blanche en coton à manches longues</li><li>Physique/Chimie 1ère, Lelivrescolaire 2019 (ISBN : 9782377601448)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3 ribbon-container"><div class="ribbon-small">À confirmer<br>lundi 11 mai</div><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale - Spécialité</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur jaune A4, 6 intercalaires, pochettes A4</li><li>1 blouse blanche en coton à manches longues</li><li>Manuel Physique Chimie Tle, Hatier 2020 (ISBN : 978-2-401-06179-8)</li></ul></div>` 
-            },
-            'svt': { 
-                title: 'Sciences de la Vie et de la Terre (SVT)', 
-                teachers: ['M. DAVID', 'Mme MBOUP'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p vert</li><li>Cahier Sciences & technologie 6e, Hachette 2023 (ISBN : 9782017875383)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 vert, 6 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 4ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 vert, 6 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li><li>SVT Cycle 4, Lelivrescolaire 2017 (ISBN : 9791090910904)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 3ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 vert, 6 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde (2nde)</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun SVT, Phy, Techno), 10 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère)</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur jaune A4, 6 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li><li>Blouse blanche en coton à manches longues</li><li>SVT 1ere Spécialité, Belin Édition 2019</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur vert A4, 6 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li><li>Blouse blanche en coton à manches longues</li><li>SVT Tle enseignement de spécialité, Belin 2020 (ISBN : 9791035810146)</li></ul></div>` 
-            },
-            'ses': { 
-                title: 'Sciences Économiques et Sociales (SES)', 
-                teachers: ['M. ANE'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde (2nde)</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24x32cm, 192 pages, violet</li><li>SES Seconde, Hachette Édition 2022 (EAN : 9782016280775)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère)</h3><ul class="list-disc ml-4 text-sm"><li>2 cahiers Seyès 24x32cm, 96 pages (1 rose, 1 violet)</li><li>1 cahier Seyès 17X22cm, 96 pages violet</li><li>SES 1ère, Hachette Édition 2023 (EAN : 9782016281031)</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Terminale</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24x32cm, 192 pages violet</li><li>1 cahier Seyès 17X22cm, 96 pages violet</li><li>1 porte vue A4 bleu</li><li>SES Terminale, Hachette Édition 2024 (EAN : 9782017257066)</li></ul></div>` 
-            },
-            'techno': { 
-                title: 'Technologie & SNT', 
-                teachers: ['M. FRAYON'],
-                content: `
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème (Technologie)</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun Techno/Phys), 8 intercalaires, pochettes A4</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 4ème (Technologie)</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun Techno/Phys), 6 intercalaires, pochettes A4</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 3ème (Technologie)</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun Techno/Phys), 6 intercalaires, pochettes A4</li></ul></div>
-                    <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde - 2nde (SNT)</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu pour les 3 disciplines (SVT, Phy, Techno), 10 intercalaires, pochettes A4</li></ul></div>` 
-            }
-        };
-
-        function switchMainTab(tab) {
-            const mainContents = document.querySelectorAll('.main-content');
-            mainContents.forEach(el => {
-                el.classList.add('hidden');
-                el.classList.remove('block');
-            });
-            
-            const mainBtns = document.querySelectorAll('.main-tab-btn');
-            mainBtns.forEach(el => {
-                el.classList.remove('border-blue-900', 'text-blue-900');
-                el.classList.add('border-transparent', 'text-gray-500');
-            });
-
-            const activeContent = document.getElementById('main-content-' + tab);
-            if (activeContent) {
-                activeContent.classList.remove('hidden');
-                activeContent.classList.add('block');
-            }
-            
-            const activeBtn = document.getElementById('mainTabBtn-' + tab);
-            if (activeBtn) {
-                activeBtn.classList.remove('border-transparent', 'text-gray-500');
-                activeBtn.classList.add('border-blue-900', 'text-blue-900');
-            }
-        }
-
-        function switchClassTab(className) {
-            const classContents = document.querySelectorAll('.class-content');
-            classContents.forEach(el => {
-                el.classList.add('hidden');
-                el.classList.remove('block');
-            });
-            
-            const classBtns = document.querySelectorAll('.class-btn');
-            classBtns.forEach(el => {
-                el.classList.remove('bg-white', 'text-blue-900', 'shadow');
-                el.classList.add('text-gray-700');
-            });
-
-            const targetContent = document.getElementById('class-content-' + className);
-            if (targetContent) {
-                targetContent.classList.remove('hidden');
-                targetContent.classList.add('block');
-            }
-            
-            const targetBtn = document.getElementById('classBtn-' + className);
-            if (targetBtn) {
-                targetBtn.classList.remove('text-gray-700');
-                targetBtn.classList.add('bg-white', 'text-blue-900', 'shadow');
-            }
-        }
-
-        function showDiscipline(discId) {
-            switchMainTab('discipline');
-            
-            const discBtns = document.querySelectorAll('.disc-btn');
-            discBtns.forEach(el => {
-                el.classList.remove('bg-white', 'text-blue-900', 'shadow');
-                el.classList.add('text-gray-700');
-            });
-            
-            const activeBtn = document.getElementById('discBtn-' + discId);
-            if (activeBtn) {
-                activeBtn.classList.remove('text-gray-700');
-                activeBtn.classList.add('bg-white', 'text-blue-900', 'shadow');
-            }
-
-            const data = disciplinesData[discId];
-            if (data) {
-                const titleEl = document.getElementById('discipline-title');
-                if (titleEl) titleEl.innerText = 'Discipline : ' + data.title;
-                
-                const nameEl = document.getElementById('discipline-name');
-                if (nameEl) nameEl.innerText = data.title;
-                
-                const contentEl = document.getElementById('discipline-dynamic-content');
-                if (contentEl) contentEl.innerHTML = data.content;
-
-                // Gérer l'affichage du bandeau rouge large sur l'attestation par discipline
-                const largeRibbon = document.getElementById('discipline-large-ribbon');
-                if (largeRibbon) {
-                    if (discId === 'anglais') {
-                        largeRibbon.innerHTML = 'En attente de décision<br>sur la sixième';
-                        largeRibbon.classList.remove('hidden');
-                    } else if (discId === 'lettres') {
-                        largeRibbon.innerHTML = 'En attente<br>des œuvres';
-                        largeRibbon.classList.remove('hidden');
-                    } else if (discId === 'physique') {
-                        largeRibbon.innerHTML = 'À confirmer<br>lundi 11 mai';
-                        largeRibbon.classList.remove('hidden');
-                    } else {
-                        largeRibbon.classList.add('hidden');
-                    }
-                }
-
-                const sigContainer = document.getElementById('discipline-signature-container');
-                if (sigContainer) {
-                    const teachers = data.teachers && data.teachers.length > 0 ? data.teachers : ['']; 
-                    
-                    let sigHTML = `<div class="w-full text-right text-sm mb-4"><p>Fait à Saly, le .......................................</p></div><div class="flex justify-center md:justify-end gap-x-8 gap-y-8 w-full flex-wrap">`;
-                    
-                    teachers.forEach(teacherName => {
-                        const displayName = teacherName ? teacherName : '.......................................';
-                        sigHTML += `
-                            <div class="text-center text-sm mt-4">
-                                <p class="font-bold mb-10">Signature de l'enseignant(e) :</p>
-                                <div class="pt-2 border-t border-gray-400 w-48 mx-auto text-gray-800 font-bold">${displayName}</div>
-                            </div>
-                        `;
-                    });
-                    sigHTML += `</div>`;
-                    sigContainer.innerHTML = sigHTML;
-                }
-            }
-        }
-
-        // Initialize default view
-        showDiscipline('anglais');
-    </script>
+    <!-- SCRIPTS EXTERNES -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
