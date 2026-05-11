@@ -211,9 +211,6 @@ function showDiscipline(discId) {
             if (discId === 'lettres') {
                 largeRibbon.innerHTML = 'En attente<br>des œuvres';
                 largeRibbon.classList.remove('hidden');
-            } else if (discId === 'physique') {
-                largeRibbon.innerHTML = 'À confirmer<br>lundi 11 mai';
-                largeRibbon.classList.remove('hidden');
             } else {
                 largeRibbon.classList.add('hidden');
             }
