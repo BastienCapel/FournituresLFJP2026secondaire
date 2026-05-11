@@ -107,7 +107,7 @@ const disciplinesData = {
         title: 'Éducation Musicale', 
         teachers: ['M. DIANDY'],
         content: `
-            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">De la 6ème à la 3ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier de musique et chants grands carreaux et portées, agrafé, 24x32 cm, 48 pages</li></ul></div>` 
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">De la 6ème à la 3ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier de musique et chants (grands carreaux et portées), agrafé, 24x32, 48 pages.</li></ul></div>` 
     },
     'philo': { 
         title: 'Philosophie', 
@@ -122,7 +122,7 @@ const disciplinesData = {
         teachers: ['M. FALL', 'M. NDAW'],
         content: `
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p orange</li><li>1 blouse blanche en coton à manches longues</li></ul></div>
-            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème et 4ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun avec Techno), 6 à 8 intercalaires, pochettes plastifiées A4</li><li>1 blouse blanche en coton à manches longues</li><li>Physique Chimie Cycle 4, Lelivrescolaire 2017 (ISBN : 979-10-90910-591)</li></ul></div>
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème et 4ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun), 6 à 8 intercalaires, pochettes A4</li><li>1 blouse blanche en coton à manches longues</li><li>Physique Chimie Cycle 4, Lelivrescolaire 2017 (ISBN : 979-10-90910-591)</li></ul></div>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 3ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun Techno/Phys), 6 intercalaires, pochettes A4</li><li>1 blouse blanche en coton à manches longues</li><li>Physique Chimie Cycle 4, Lelivrescolaire 2017 (ISBN : 979-10-90910-591)</li></ul></div>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Seconde (2nde)</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun SVT, Phy, Techno), 10 intercalaires, pochettes A4</li><li>1 blouse blanche en coton à manches longues</li><li>Physique Chimie 2nde, Lelivrescolaire 2019 (ISBN : 9782377601431)</li></ul></div>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de Première (1ère) - Spécialité</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 bleu (commun SVT/Tech), 10 intercalaires, pochettes A4</li><li>1 blouse blanche en coton à manches longues</li><li>Physique/Chimie 1ère, Lelivrescolaire 2019 (ISBN : 9782377601448)</li></ul></div>
@@ -132,7 +132,7 @@ const disciplinesData = {
         title: 'Sciences de la Vie et de la Terre (SVT)', 
         teachers: ['M. DAVID', 'Mme MBOUP'],
         content: `
-            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>1 cahier Seyès 24X32 96p vert</li><li>Cahier Sciences & technologie 6e, Hachette 2023 (ISBN : 9782017875383)</li></ul></div>
+            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 6ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 vert, 6 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li><li>Cahier Sciences & technologie 6e, Hachette 2023 (ISBN : 9782017875383)</li></ul></div>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 5ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 vert, 6 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li></ul></div>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 4ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 vert, 6 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li><li>SVT Cycle 4, Lelivrescolaire 2017 (ISBN : 9791090910904)</li></ul></div>
             <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-3"><h3 class="font-bold text-blue-800 mb-2 border-b pb-1">Classe de 3ème</h3><ul class="list-disc ml-4 text-sm"><li>1 classeur A4 vert, 6 intercalaires, lot de pochettes plastifiées transparentes A4 pour classeur</li></ul></div>
