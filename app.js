@@ -208,7 +208,12 @@ function showDiscipline(discId) {
 
         var largeRibbon = document.getElementById('discipline-large-ribbon');
         if (largeRibbon) {
-            largeRibbon.classList.add('hidden');
+            if (discId === 'lettres') {
+                largeRibbon.innerHTML = '5e, 2nde<br>en attente';
+                largeRibbon.classList.remove('hidden');
+            } else {
+                largeRibbon.classList.add('hidden');
+            }
         }
 
         var sigContainer = document.getElementById('discipline-signature-container');
