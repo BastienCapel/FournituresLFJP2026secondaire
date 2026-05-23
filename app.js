@@ -209,7 +209,7 @@ function showDiscipline(discId) {
         var largeRibbon = document.getElementById('discipline-large-ribbon');
         if (largeRibbon) {
             if (discId === 'lettres') {
-                largeRibbon.innerHTML = 'En attente<br>des œuvres';
+                largeRibbon.innerHTML = '5e, 4e, 3e, 2nde<br>en attente';
                 largeRibbon.classList.remove('hidden');
             } else {
                 largeRibbon.classList.add('hidden');
